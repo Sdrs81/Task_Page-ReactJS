@@ -1,12 +1,16 @@
 import './App.css'
-import TaskCreate from './Components/TaskCreate'
+import TaskCreate from './components/TaskCreate'
 import TaskList from './components/TaskList'
 
 function App() {
 
+  const createTask = (title, taskDesc) =>{
+    
+  }
+
   return (
     <div className="App">
-      <TaskCreate/>
+      <TaskCreate onCreate={createTask}/>
       <h1>Görevler</h1>
       <TaskList/>
     </div>
