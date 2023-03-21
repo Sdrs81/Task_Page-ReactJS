@@ -11,5 +11,6 @@ The technologies and methods that used in this project are as follows:
 - React State
 - Creating Component List
 - Arrow Functions, Map usage and Array methods
+- Ternary operator usage to display different views
 
 Note: After cloning this project, you should run 'npm install' command in terminal to make project ready to work.
