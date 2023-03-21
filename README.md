@@ -1,4 +1,4 @@
-# Photo Search Page - React.Js Project
+# Task Page - React.Js Project
 
 The technologies and methods that used in this project are as follows:
 
@@ -10,6 +10,6 @@ The technologies and methods that used in this project are as follows:
 - Math Object
 - React State
 - Creating Component List
-- Arrow Functions and Map usage
+- Arrow Functions, Map usage and Array methods
 
 Note: After cloning this project, you should run 'npm install' command in terminal to make project ready to work.

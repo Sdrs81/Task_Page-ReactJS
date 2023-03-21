@@ -1,34 +1,71 @@
 import { useState } from "react";
 
-function TaskCreate({onCreate}) {
+function TaskCreate({ onCreate, task, taskFormUpdate }) {
+  const [title, setTitle] = useState(task ? task.title : "");
+  const [taskDesc, setTaskDesc] = useState(task ? task.taskDesc : "");
 
-    const [title, setTitle] = useState('');
-    const [taskDesc, setTaskDesc] = useState('');
+  const handleChange = (event) => {
+    setTitle(event.target.value);
+  };
+  const handleTaskChange = (event) => {
+    setTaskDesc(event.target.value);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onCreate(title, taskDesc);
+    setTitle("");
+    setTaskDesc("");
+  };
 
-
-    const handleChange = (event) =>{
-        setTitle(event.target.value);
-    }
-    const handleTaskChange = (event) =>{
-        setTaskDesc(event.target.value);
-    }
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        onCreate(title, taskDesc);
-        setTitle('');
-        setTaskDesc('');
-    }
-
-    return ( <div className="task-create">
-        <h3>Lütfen Görev Ekleyiniz!</h3>
-        <form className="task-form">
+  return (
+    <div>
+      {taskFormUpdate ? (
+        <div className="task-update">
+          <h3>Lütfen Görevi Düzenleyiniz!</h3>
+          <form className="task-form">
+            <label className="task-label">Başlığı Düzenleyiniz!</label>
+            <input
+              value={title}
+              onChange={handleChange}
+              className="task-input"
+            />
+            <label className="task-label">Görevi Düzenleyiniz!</label>
+            <textarea
+              value={taskDesc}
+              onChange={handleTaskChange}
+              className="task-input"
+              rows={5}
+            ></textarea>
+            <button className="task-button update-button" onClick={handleSubmit}>
+              Düzenle
+            </button>
+          </form>
+        </div>
+      ) : (
+        <div className="task-create">
+          <h3>Lütfen Görev Ekleyiniz!</h3>
+          <form className="task-form">
             <label className="task-label">Başlık</label>
-            <input value={title} onChange={handleChange} className="task-input"/>
+            <input
+              value={title}
+              onChange={handleChange}
+              className="task-input"
+            />
             <label className="task-label">Görev Giriniz</label>
-            <textarea value={taskDesc} onChange={handleTaskChange} className="task-input" rows={5}></textarea>
-            <button className="task-button" onClick={handleSubmit}>Oluştur</button>
-        </form>
-    </div> );
+            <textarea
+              value={taskDesc}
+              onChange={handleTaskChange}
+              className="task-input"
+              rows={5}
+            ></textarea>
+            <button className="task-button" onClick={handleSubmit}>
+              Oluştur
+            </button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default TaskCreate;
