@@ -3,7 +3,7 @@
 The technologies and methods that used in this project are as follows:
 
 - React JSX
-- React Hooks (useState, useEffect)
+- React Hooks (useState, useEffect, useContext)
 - Component Logic
 - Passing datas to child components
 - Passing datas to parent component from child component
